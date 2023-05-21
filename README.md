@@ -1,17 +1,9 @@
-# CODEC_Crop-Filling
-
-
-
                               ____    ___   ____        _____  _  _     _
                          ___ |  _ \  / _ \ |  _ \      |  ___|| || |   | |
                         / __|| |_) || | | || |_| | ___ | |__  | || |   | |
                        | (__ |  _ < | |_| ||  __/ |___||  __| | || |__ | |__
                         \___||_| \_\ \____/|_|         |_|    |_||____||____|
 
-
-
-
-README
     Crop-fill is a pipeline developed by Gonzalo Castro that makes use of different build in tools
     of FreeSurfer 7 developer version (SynthSR and SynthSR Hyperfine) to try to solve the partial
     brain coverage issue encountered in CODEC brain MRI dataset in 2021. For more information on
