@@ -8,14 +8,8 @@ To create the singularity image run the following commands
 
 ```
 podman build --quiet --squash-all --force-rm --tag freesurfer:dev .
-```
-```
 podman save --format docker-archive --output freesurfer-dev.tar localhost/freesurfer:dev
-```
-```
 mkdir /home/user_name/tmp
-```
-```
 SINGULARITY_TMPDIR=/home/user_name/tmp singularity build --disable-cache freesurfer_dev.sif docker-archive://freesurfer-dev.tar
 ```
 
