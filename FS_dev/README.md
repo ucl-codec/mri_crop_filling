@@ -4,7 +4,7 @@ to avoid downloading those files again and again in case changes in the code are
 Instead download this files and place them inside the folder: 
 Miniconda3-py38_4.12.0-Linux-x86_64.sh and freesurfer-linux-ubuntu18_x86_64-7-dev.tar.gz
 
-To create the singularity image run the following commands while in this folder. CHneg user_name with your user name
+To create the singularity image run the following commands while in this folder. Change user_name with your user name
 
 ```
 podman build --quiet --squash-all --force-rm --tag freesurfer:dev .
