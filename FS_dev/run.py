@@ -28,6 +28,9 @@ def run(command, env={}, ignore_errors=False):
     if process.returncode != 0 and not ignore_errors:
         raise Exception("Non zero return code: %d" % process.returncode)
 
+def remove_acq(TXw,substr='acq-'):
+    TXw = [tx for tx in TXw if substr not in tx]
+    return TXw
 
 __version__ = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'version')).read()
 
@@ -172,10 +175,14 @@ else:
 
 # Overwrite if acq-label is intentionally blank
 if args.acquisition_label=="":
-    ar_tpl = ar_tpl.replace('acq-','')
+    acq_label_blank = True
+else:
+    acq_label_blank = False
 # Overwrite if pial-acq-label is intentionally blank
 if args.refine_pial_acquisition_label=="":
-    ar_t2 = ar_t2.replace('acq-','')
+    refine_pial_acq_label_blank = True
+else:
+    refine_pial_acq_label_blank = False
 
 # if there are session folders, check if study is truly longitudinal by
 # searching for the first subject with more than one valid sessions
@@ -242,6 +249,9 @@ if args.analysis_level == "participant":
                                     "ses-*",
                                     "anat",
                                     "%s_T1w.nii*" % (ar_tpl)))
+            # Remove modifed files named *acq-*
+            if acq_label_blank:
+                T1s = remove_acq(T1s)
             sessions = set([os.path.normpath(t1).split(os.sep)[-3].split("-")[-1] for t1 in T1s])
             if args.session_label:
                 sessions = sessions.intersection(args.session_label)
@@ -256,6 +266,10 @@ if args.analysis_level == "participant":
                                                 "ses-%s" % session_label,
                                                 "anat",
                                                 "%s_T1w.nii*" % (ar_tpl)))
+                        # Remove modifed files named *acq-*
+                        if acq_label_blank:
+                            T1s = remove_acq(T1s)
+
                         input_args = ""
 
                         if three_T == 'true':
@@ -273,9 +287,16 @@ if args.analysis_level == "participant":
                         T2s = glob(os.path.join(args.bids_dir, "sub-%s" % subject_label,
                                                 "ses-%s" % session_label, "anat",
                                                 "%s_T2w.nii*" % (ar_t2)))
+                        # Remove modifed files named *acq-*
+                        if refine_pial_acq_label_blank:
+                            T2s = remove_acq(T2s)
+
                         FLAIRs = glob(os.path.join(args.bids_dir, "sub-%s" % subject_label,
                                                    "ses-%s" % session_label, "anat",
                                                    "%s_FLAIR.nii*" % (ar_t2)))
+                        # Remove modifed files named *acq-*
+                        if refine_pial_acq_label_blank:
+                            FLAIRs = remove_acq(FLAIRs)
                         if args.refine_pial == "T2":
                             for T2 in T2s:
                                 if (max(nibabel.load(T2).header.get_zooms()) < 1.2) | args.allow_lowresT2:
@@ -373,6 +394,10 @@ if args.analysis_level == "participant":
                                         "ses-*",
                                         "anat",
                                         "%s_T1w.nii*" % (ar_tpl)))
+                # Remove modifed files named *acq-*
+                if acq_label_blank:
+                    T1s = remove_acq(T1s)
+
                 input_args = ""
 
                 if three_T == 'true':
@@ -397,6 +422,11 @@ if args.analysis_level == "participant":
                                            "ses-*",
                                            "anat",
                                            "%s_FLAIR.nii*" % (ar_t2)))
+                # Remove modifed files named *acq-*
+                if refine_pial_acq_label_blank:
+                    T2s = remove_acq(T2s)
+                    FLAIRs = remove_acq(FLAIRs)
+
                 if args.refine_pial == "T2":
                     for T2 in T2s:
                         if (max(nibabel.load(T2).header.get_zooms()) < 1.2) | args.allow_lowresT2:
@@ -444,6 +474,9 @@ if args.analysis_level == "participant":
                                     "sub-%s" % subject_label,
                                     "anat",
                                     "%s_T1w.nii*" % (ar_tpl)))
+            # Remove modifed files named *acq-*
+            if acq_label_blank:
+                T1s = remove_acq(T1s)
             if not T1s:
                 print("No T1w nii files found for subject %s. Skipping subject." % subject_label)
                 continue
@@ -465,6 +498,10 @@ if args.analysis_level == "participant":
                                     "%s_T2w.nii*" % (ar_t2)))
             FLAIRs = glob(os.path.join(args.bids_dir, "sub-%s" % subject_label, "anat",
                                        "%s_FLAIR.nii*" % (ar_t2)))
+            # Remove modifed files named *acq-*
+            if refine_pial_acq_label_blank:
+                T2s = remove_acq(T2s)
+                FLAIRs = remove_acq(FLAIRs)
             if args.refine_pial == "T2":
                 for T2 in T2s:
                     if max(nibabel.load(T2).header.get_zooms()) < 1.2:
@@ -641,6 +678,9 @@ elif args.analysis_level == "developer":  # running developer options
                                     "ses-*",
                                     "anat",
                                     "%s_T1w.nii*" % ar_tpl))
+            # Remove modifed files named *acq-*
+            if acq_label_blank:
+                T1s = remove_acq(T1s)
             sessions = set([os.path.normpath(t1).split(os.sep)[-3].split("-")[-1] for t1 in T1s])
             if args.session_label:
                 sessions = sessions.intersection(args.session_label)
@@ -650,6 +690,9 @@ elif args.analysis_level == "developer":  # running developer options
                                         "ses-%s" % session_label,
                                         "anat",
                                         "%s_T1w.nii*" % ar_tpl))
+                # Remove modifed files named *acq-*
+                if acq_label_blank:
+                    T1s = remove_acq(T1s)
                 input_args_t1 = ""
                 output_args_t1_sr = ""
                 output_args_t1t2 = ""
@@ -678,6 +721,9 @@ elif args.analysis_level == "developer":  # running developer options
                 T2s = glob(os.path.join(args.bids_dir, "sub-%s" % subject_label,
                                         "ses-%s" % session_label, "anat",
                                         "%s_T2w.nii*" % ar_t2))
+                # Remove modifed files named *acq-*
+                if refine_pial_acq_label_blank:
+                    T2s = remove_acq(T2s)
                 input_args_t2 = ""
                 output_args_t2_sr = ""
                 output_args_t2_ds = ""
@@ -699,6 +745,9 @@ elif args.analysis_level == "developer":  # running developer options
                 FLAIRs = glob(os.path.join(args.bids_dir, "sub-%s" % subject_label,
                                            "ses-%s" % session_label, "anat",
                                            "%s_FLAIR.nii*" % ar_t2))
+                # Remove modifed files named *acq-*
+                if refine_pial_acq_label_blank:
+                    FLAIRs = remove_acq(FLAIRs)
                 input_args_flair = ""
                 output_args_flair_sr = ""
                 output_args_flair_ds = ""
