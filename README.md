@@ -40,7 +40,7 @@ folder/with/BIDS/format developer --participant_label <sub-label> --license_file
 [In]: acq-label of the actual T1w file & acq-label of any T2w file   
 [Out]: T2_to_T1.mgz   
 
-The ouput of the previous comand would be a T2_to_T1.mgz, and so it needs to be converted to an appropriate
+The output of the previous comand would be a T2_to_T1.mgz, and so it needs to be converted to an appropriate
 nii image
 ``` 
 singularity run --bind /directory/to/bind singularity-image_freedurfer-dev.sif folder/with/BIDS/format
