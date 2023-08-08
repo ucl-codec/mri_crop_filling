@@ -169,7 +169,7 @@ if args.refine_pial_acquisition_label and not args.refine_pial_reconstruction_la
 elif args.refine_pial_reconstruction_label and not args.refine_pial_acquisition_label:
     ar_t2 = "*_rec-%s*" % args.refine_pial_reconstruction_label
 elif args.refine_pial_reconstruction_label and args.refine_pial_acquisition_label:
-    ar_t2 = "*_acq-%s*_rec-%s*" % (args.refine_pial_acquisition_label, args.refine_pial_reconstruction_label)
+    ar_t2 = "*_acq-%s*_rec-%s_*" % (args.refine_pial_acquisition_label, args.refine_pial_reconstruction_label)
 else:
     ar_t2 = "*"
 
