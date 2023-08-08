@@ -155,21 +155,21 @@ subject_dirs = glob(os.path.join(args.bids_dir, "sub-*"))
 
 # Got to combine acq_tpl and rec_tpl
 if args.acquisition_label and not args.reconstruction_label:
-    ar_tpl = "*acq-%s*" % args.acquisition_label
+    ar_tpl = "*_acq-%s*" % args.acquisition_label
 elif args.reconstruction_label and not args.acquisition_label:
-    ar_tpl = "*rec-%s*" % args.reconstruction_label
+    ar_tpl = "*_rec-%s*" % args.reconstruction_label
 elif args.reconstruction_label and args.acquisition_label:
-    ar_tpl = "*acq-%s*_rec-%s*" % (args.acquisition_label, args.reconstruction_label)
+    ar_tpl = "*_acq-%s*_rec-%s*" % (args.acquisition_label, args.reconstruction_label)
 else:
     ar_tpl = "*"
 
 # Got to combine acq_tpl and rec_tpl
 if args.refine_pial_acquisition_label and not args.refine_pial_reconstruction_label:
-    ar_t2 = "*acq-%s*" % args.refine_pial_acquisition_label
+    ar_t2 = "*_acq-%s*" % args.refine_pial_acquisition_label
 elif args.refine_pial_reconstruction_label and not args.refine_pial_acquisition_label:
-    ar_t2 = "*rec-%s*" % args.refine_pial_reconstruction_label
+    ar_t2 = "*_rec-%s*" % args.refine_pial_reconstruction_label
 elif args.refine_pial_reconstruction_label and args.refine_pial_acquisition_label:
-    ar_t2 = "*acq-%s*_rec-%s*" % (args.refine_pial_acquisition_label, args.refine_pial_reconstruction_label)
+    ar_t2 = "*_acq-%s*_rec-%s*" % (args.refine_pial_acquisition_label, args.refine_pial_reconstruction_label)
 else:
     ar_t2 = "*"
 
