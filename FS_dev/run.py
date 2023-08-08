@@ -657,11 +657,11 @@ elif args.analysis_level == "developer":  # running developer options
                     input_args_t1 += "%s" % T1
                     str_split = "%s_T1w." % ar_tpl.replace('*', '')
                     out = input_args_t1.split(str_split)
-                    output_args_t1_sr = "{out1}acq-SRT1_T1w.{out2}".format(out1=out[0], out2=out[1])
-                    output_args_t1_ds = "{out1}acq-ds_T1w.{out2}".format(out1=out[0], out2=out[1])
-                    output_args_t1t2 = "{out1}acq-SRT1T2_T1w.{out2}".format(out1=out[0], out2=out[1])
-                    output_args_t1_sr_reg = "{out1}acq-SRT2reg_T1w.{out2}".format(out1=out[0], out2=out[1])
-                    output_args_t1_srh = "{out1}acq-SRH_T1w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t1_sr = "{out1}_acq-SRT1_T1w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t1_ds = "{out1}_acq-ds_T1w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t1t2 = "{out1}_acq-SRT1T2_T1w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t1_sr_reg = "{out1}_acq-SRT2reg_T1w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t1_srh = "{out1}_acq-SRH_T1w.{out2}".format(out1=out[0], out2=out[1])
                     output_args_t1_sseg = "{out_folder}/{sub}-SSEG_T1w.{out2}".format(out_folder=output_dir,
                                                                                       sub=subject_label, out2=out[1])
                     output_args_prob_sseg = "{out_folder}/{sub}-SSEGprob_T1w.{out2}".format(out_folder=output_dir,
@@ -680,9 +680,9 @@ elif args.analysis_level == "developer":  # running developer options
                     input_args_t2 += "%s" % T2
                     str_split = "%s_T2w." % ar_t2.replace('*', '')
                     out = input_args_t2.split(str_split)
-                    output_args_t2_sr = "{out1}acq-SRT2_T1w.{out2}".format(out1=out[0], out2=out[1])
-                    output_args_t2_ds = "{out1}acq-ds_T2w.{out2}".format(out1=out[0], out2=out[1])
-                    output_args_t2_reg = "{out1}acq-reg_T2w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t2_sr = "{out1}_acq-SRT2_T1w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t2_ds = "{out1}_acq-ds_T2w.{out2}".format(out1=out[0], out2=out[1])
+                    output_args_t2_reg = "{out1}_acq-reg_T2w.{out2}".format(out1=out[0], out2=out[1])
                     output_args_t2_sseg = "{out_folder}/{sub}-SSEG_T2w.{out2}".format(out_folder=output_dir,
                                                                                       sub=subject_label, out2=out[1])
                     output_args_prob_sseg = "{out_folder}/{sub}-SSEGprob_T2w.{out2}".format(out_folder=output_dir,
