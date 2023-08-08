@@ -170,6 +170,13 @@ elif args.refine_pial_reconstruction_label and args.refine_pial_acquisition_labe
 else:
     ar_t2 = "*"
 
+# Overwrite if acq-label is intentionally blank
+if args.acquisition_label=="":
+    ar_tpl = ar_tpl.replace('acq-','')
+# Overwrite if pial-acq-label is intentionally blank
+if args.refine_pial_acquisition_label=="":
+    ar_t2 = ar_t2.replace('acq-','')
+
 # if there are session folders, check if study is truly longitudinal by
 # searching for the first subject with more than one valid sessions
 multi_session_study = False
