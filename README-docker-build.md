@@ -21,14 +21,15 @@ wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/dev/freesurfer-linux
 
 3. Build FreeSurfer docker container
 ```
-DOCKERTAG=noxtoby/cropfilling:fs7dev
+USER=$(id -un)
+DOCKERTAG=${USER}/cropfilling:fs7dev
 docker build --progress=plain --tag ${DOCKERTAG} -f Dockerfile .
 ```
 
 4. Build Crop-filling container
 ```
 cd ../crop_fill
-DOCKERTAGCF=noxtoby/cropfilling:crop_fill
+DOCKERTAGCF=${USER}/cropfilling:crop_fill
 docker build --progress=plain --tag ${DOCKERTAGCF} -f Dockerfile .
 ```
 
@@ -40,4 +41,4 @@ IMAGEIDFS=<some-hash>
 IMAGEIDCF=<another-hash>
 ```
 
-Now you can follow the Crop-Filling [README](./README.md).
+Now you can follow the Crop-Filling [docker walkthrough](./README-docker.md).
