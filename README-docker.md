@@ -54,11 +54,23 @@ MOUNTFSLICENSE="type=bind,source=${FSLICENCEPATH},target=/license.txt"
 MOUNTBIDS="type=bind,source=${CLINICAL_BIDS_PATH},target=/bids"
 ```
 
-### Step 1: Crop T2 to match clinical data
+### Step 1: zero-pad cropped T1 to match clinical data
 
-This was a step performed on ADNI data in the Crop-filling paper (preprint: [Castro Leal, et al. medRxiv 2023](https://doi.org/10.1101/2023.03.06.23286839)).
+WARNING: untested!<br/>
+In the Crop-filling paper (preprint: [Castro Leal, et al. medRxiv 2023](https://doi.org/10.1101/2023.03.06.23286839)), ground-truth (uncropped) T1 data from [ADNI](https://adni.loni.usc.edu) was first cropped. I did not test this:
+```
+ACQ=""
+docker run -ti --rm --mount ${MOUNTBIDS} ${IMAGEIDCF} --participant_label ${SUB} --session_label ${SES} --mri_crop_step crop --acquisition_label ${ACQ} /bids
+```
 
-Not necessary if running on clinical data.
+If running on clinical data, you need to add blank voxels to (pad) the cropped T1, but first you have to run Step 2 below!
+```
+ACQ=""
+ACQ_ZEROPAD_REF="???"
+docker run -ti --rm --mount ${MOUNTBIDS} ${IMAGEIDCF} --participant_label ${SUB} --session_label ${SES} --mri_crop_step zeropad --acquisition_label ${ACQ} --zeropad_label ${ACQ_ZEROPAD_REF} /bids
+```
+
+I you don't do this, then everything will stay cropped throughout this pipeline.
 
 ### Step 2. Downsample T2 to match clinical T2
 
