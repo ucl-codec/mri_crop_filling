@@ -35,7 +35,7 @@ FSLICENCEPATH=/path/to/freesurfer_license.txt
 
 Select clinical scans for testing
 ```
-CLINICAL_BIDS_PATH=/Path/to/bids
+CLINICAL_BIDS_PATH=/path/to/bids
 SUB=001
 SES=01
 T1_PATH=${CLINICAL_BIDS_PATH}/sub-${SUB}/ses-${SES}/anat/sub-${SUB}_ses-${SES}_T1w.nii.gz
@@ -44,7 +44,7 @@ T2_PATH=${CLINICAL_BIDS_PATH}/sub-${SUB}/ses-${SES}/anat/sub-${SUB}_ses-${SES}_T
 
 Allow for `run.py` development by mounting it within the container (thereby overwriting the original from image build time):
 ```
-CROP_FILLING_REPO_PATH=/Path/to/CODEC_Crop-Filling
+CROP_FILLING_REPO_PATH=/path/to/CODEC_Crop-Filling
 RUNPY_FS=${CROP_FILLING_REPO_PATH}/FS_dev/run.py
 MOUNTRUNPY_FSTEXT="type=bind,source=${RUNPY_FS},target=/run.py"
 RUNPY_CF=${CROP_FILLING_REPO_PATH}/crop_fill/run.py
