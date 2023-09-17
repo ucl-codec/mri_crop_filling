@@ -90,14 +90,14 @@ for subject_label in subjects_to_analyze:
             output_args_t1_fill = ""
             for T1 in T1s:
                 input_args_t1 += "%s" % T1
-                out = input_args_t1.split("acq-{acq}".format(acq=args.acquisition_label))
-                output_args_t1_crop = "{out1}acq-cropped{out2}".format(out1=out[0], out2=out[1])
-                output_args_t1_filled = "{out1}acq-filled{out2}".format(out1=out[0], out2=out[1])
-                output_args_t1_zeropadded = "{out1}acq-zeropadded{out2}".format(out1=out[0], out2=out[1])
-                input_args_t1_fill = "{out1}acq-{fill}{out2}".format(out1=out[0], fill=args.filling_label, out2=out[1])
-                input_args_t1_zeropad = "{out1}acq-{zeropad}{out2}".format(out1=out[0], zeropad=args.zeropad_label, out2=out[1])
-                input_args_t1_ds = "{out1}acq-ds{out2}".format(out1=out[0], out2=out[1])
-                output_args_t1_trimmed = "{out1}acq-trimmed{out2}".format(out1=out[0], out2=out[1])
+                out = input_args_t1.split("acq-{acq}_T1w".format(acq=args.acquisition_label))
+                output_args_t1_crop = "{out1}acq-cropped_T1w{out2}".format(out1=out[0], out2=out[1])
+                output_args_t1_filled = "{out1}acq-filled_T1w{out2}".format(out1=out[0], out2=out[1])
+                output_args_t1_zeropadded = "{out1}acq-zeropadded_T1w{out2}".format(out1=out[0], out2=out[1])
+                input_args_t1_fill = "{out1}acq-{fill}_T1w{out2}".format(out1=out[0], fill=args.filling_label, out2=out[1])
+                input_args_t2_zeropad = "{out1}acq-{zeropad}_T2w{out2}".format(out1=out[0], zeropad=args.zeropad_label, out2=out[1])
+                input_args_t1_ds = "{out1}acq-ds_T1w{out2}".format(out1=out[0], out2=out[1])
+                output_args_t1_trimmed = "{out1}acq-trimmed_T1w{out2}".format(out1=out[0], out2=out[1])
 
             if args.mri_crop_step == "crop":
                 print("Cropping")
