@@ -84,7 +84,7 @@ def zero_pad(img_pad_path, img_reference, img_zeropadded_path):
     print(z_pad_fov, img_pad_shape, img_pad_dims)
 
     diff_in_mm = z_ref_fov - z_pad_fov
-    zeros_add = np.round(diff_in_mm / img_pad_dims[2])
+    zeros_add = np.round(diff_in_mm / img_pad_dims[0])
     zeros_add = np.floor(zeros_add / 2.) * 2
     padded_shape = np.array([img_pad_shape[0] + zeros_add, img_pad_shape[1], img_pad_shape[2]]).astype(np.int)
     img_padded_fdata = np.zeros(padded_shape)
