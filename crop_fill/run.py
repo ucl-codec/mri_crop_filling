@@ -107,7 +107,7 @@ for subject_label in subjects_to_analyze:
                 collage_img(input_args_t1, input_args_t1_fill, output_args_t1_filled)
             elif args.mri_crop_step == "zero_pad":
                 print("Zero padding")
-                zero_pad(input_args_t1, input_args_t1_zeropad, output_args_t1_zeropadded)
+                zero_pad(input_args_t1, input_args_t2_zeropad, output_args_t1_zeropadded)
             elif args.mri_crop_step == "trim":
                 print("Trimming")
                 trim(input_args_t1, input_args_t1_ds, output_args_t1_trimmed)
