@@ -864,7 +864,7 @@ elif args.analysis_level == "developer":  # running developer options
                         output_args_v1to2_weights = os.path.join(args.bids_dir, "sub-%s" % subject_label,
                                                                  "ses-%s" % session_label, "anat", "v1to2-weights.mgz")
                         cmd = "mri_robust_register --mov %s --dst %s --lta %s --mapmov %s --cost NMI --noinit --nomulti" % (
-                            output_args_t2_ds, input_args_t1, output_args_lta, output_args_v1to2_mgz)
+                            input_args_t2 , input_args_t1, output_args_lta, output_args_v1to2_mgz)
 
                 elif args.dev_tools == "mri_convert_cub":
 
