@@ -93,7 +93,7 @@ def zero_pad(img_pad_path, img_reference, img_zeropadded_path):
     img_padded_fdata[min:max, :, :] = img_pad_fdata
 
     print(affine_pad)
-    affine_pad[:, 3] = [affine_pad[0, 3] - zeros_add / 2, affine_pad[1, 3] - 1, affine_pad[2, 3] + 2, affine_pad[3, 3]]
+    affine_pad[:, 3] = [affine_pad[0, 3] - zeros_add / 2, affine_pad[1, 3], affine_pad[2, 3], affine_pad[3, 3]]
     print(affine_pad)
     img_padded = nb.Nifti1Image(img_padded_fdata, affine_pad)
     nb.save(img_padded, img_zeropadded_path)
