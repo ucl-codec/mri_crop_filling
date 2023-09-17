@@ -39,7 +39,7 @@ subject_dirs = glob(os.path.join(args.bids_dir, "sub-*"))
 
 # Got to combine acq_tpl and rec_tpl
 if args.acquisition_label:
-    ar_tpl = "*acq-%s*" % args.acquisition_label
+    ar_tpl = "*_acq-%s*" % args.acquisition_label
 else:
     ar_tpl = "*"
 
