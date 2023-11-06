@@ -1,10 +1,16 @@
-# MRI Crop-Filling (Singularity/Apptainer instructions)
+# MRI Crop Filling 
 
 **MRI Crop Filling** is a pipeline developed in 2021 by Gonzalo Castro that makes use of FreeSurfer 
 tools `SynthSR` and `SynthSR Hyperfine` to solve the partial brain coverage (cropping) issue 
 encountered in the CODEC (Essex Memory Clinic, UK) brain MRI dataset. 
 
-For more information on this pipeline please read the paper ([preprint](https://doi.org/10.1101/2023.03.06.23286839)). 
+For more information on this pipeline please read the paper:
+
+- [Crop Filling: a pipeline for repairing memory clinic MRI corrupted by partial brain coverage](https://doi.org/10.1101/2023.03.06.23286839), Gonzalo Castro Leal, _et al._, Neil P Oxtoby, medR&chi;iv (2023).
+
+<hr/>
+
+# MRI Crop Filling (Singularity/Apptainer instructions)
 
 This README explains the steps of the pipeline using commands of the singluarity container. <br/>
 For Docker instructions, see [README-docker.md](./README-docker.md).
