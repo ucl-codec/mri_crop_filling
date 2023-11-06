@@ -1,4 +1,4 @@
-# Docker Crop-Filling
+# MRI Crop-Filling (Docker instructions)
 
 Author: [Neil Oxtoby](https://github.com/noxtoby), UCL (August 2023).
 
