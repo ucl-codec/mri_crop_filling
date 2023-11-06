@@ -1,10 +1,16 @@
-Crop-fill is a pipeline developed by Gonzalo Castro that makes use of different build in tools
-of FreeSurfer 7 developer version (SynthSR and SynthSR Hyperfine) to try to solve the partial
-brain coverage issue encountered in CODEC brain MRI dataset in 2021. For more information on
-this pipeline please read the paper published on it. The purpouse of this file is to explain the
-different commands of the docker image used for the implementation. Sometimes the acq-labels 
-inputed in the singularity command will be the actual ones that the pipeline will use, however 
-in other cases the acq-label will be used as a reference to locate the necessary file.
+# MRI Crop-Filling (Singularity/Apptainer instructions)
+
+**MRI Crop Filling** is a pipeline developed in 2021 by Gonzalo Castro that makes use of FreeSurfer 
+tools `SynthSR` and `SynthSR Hyperfine` to solve the partial brain coverage (cropping) issue 
+encountered in the CODEC (Essex Memory Clinic, UK) brain MRI dataset. 
+
+For more information on this pipeline please read the paper ([preprint](https://doi.org/10.1101/2023.03.06.23286839)). 
+
+This README explains the steps of the pipeline using commands of the singluarity container. <br/>
+For Docker instructions, see [README-docker.md](./README-docker.md).
+
+Sometimes the acq-labels input in the singularity command will be the actual ones that the pipeline
+will use, but in other cases the acq-label will be used as a reference to locate the necessary file.
 
 ## STEP 1. CROP/ZEROPAD
 This step involves the reduction of the FOV of full brain scans (The equivalent in partial brain
