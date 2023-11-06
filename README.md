@@ -1,6 +1,6 @@
 # MRI Crop Filling 
 
-**MRI Crop Filling** is a pipeline developed in 2021 by Gonzalo Castro that makes use of FreeSurfer 
+**MRI Crop Filling** is a pipeline developed in 2022 by Gonzalo Castro that makes use of FreeSurfer 
 tools `SynthSR` and `SynthSR Hyperfine` to solve the partial brain coverage (cropping) issue 
 encountered in the CODEC (Essex Memory Clinic, UK) brain MRI dataset. 
 
