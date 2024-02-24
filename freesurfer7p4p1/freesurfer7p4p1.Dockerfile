@@ -81,7 +81,7 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/apt/lists/* \
     # Install dependencies.
     && export PATH="/opt/miniconda-4.12.0/bin:$PATH" \
-    #&& echo "Downloading Miniconda installer ..." \
+    # && echo "Downloading Miniconda installer ..." \
     && conda_installer="/tmp/miniconda_installer.sh" \
     # && curl -fsSL -o "$conda_installer" https://repo.anaconda.com/miniconda/Miniconda3-py39_23.11.0-2-Linux-x86_64.sh \
     && echo "Running Miniconda installer ..." \
