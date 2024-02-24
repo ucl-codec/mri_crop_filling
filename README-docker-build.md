@@ -1,5 +1,7 @@
 # How to build the docker containers for Crop-filling
 
+New (Feb 2024): for building on a Mac M3, switch to [the mac_M3 branch](https://github.com/ucl-codec/mri_crop_filling/blob/macos_m3/README-docker-build.md).
+
 Requirements:
 
 - Miniconda installer: [Miniconda3-py38_4.12.0-Linux-x86_64.sh](https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh)
