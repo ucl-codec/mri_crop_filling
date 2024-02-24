@@ -6,7 +6,9 @@ encountered in the CODEC (Essex Memory Clinic, UK) brain MRI dataset.
 
 For more information on this pipeline please read the paper:
 
-- [Crop Filling: a pipeline for repairing memory clinic MRI corrupted by partial brain coverage](https://doi.org/10.1101/2023.03.06.23286839), Gonzalo Castro Leal, _et al._, Neil P Oxtoby, medR&chi;iv (2023).
+- _Crop Filling: a pipeline for repairing memory clinic MRI corrupted by partial brain coverage_, [MethodsX **12**, 102542](https://doi.org/10.1016/j.mex.2023.102542) (2024).<br/>
+  Gonzalo Castro Leal, Tim Whitfield, Janaki Praharaju, Zuzana Walker, Neil P Oxtoby.
+- [medR&chi;iv preprint](https://doi.org/10.1101/2023.03.06.23286839) (2023)
 
 <hr/>
 
