@@ -14,12 +14,14 @@ cd /path/to/mri_crop_filling
    - MiniConda installer (takes seconds)
    - FreeSurfer v7.4.1, ubuntu 22 (takes minutes to hours, depending on your connection)
 ```
-wget https://repo.anaconda.com/miniconda/Miniconda3-py39_23.11.0-2-Linux-x86_64.sh
-wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/dev/freesurfer-linux-ubuntu22_amd64-7.4.1.tar.gz
+MINICONDA_INSTALLER=Miniconda3-py39_23.11.0-2-Linux-x86_64.sh
+FREESURFER_TARBALL=freesurfer-linux-ubuntu22_amd64-7.4.1.tar.gz
+wget https://repo.anaconda.com/miniconda/${MINICONDA_INSTALLER}
+wget https://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/7.4.1/${FREESURFER_TARBALL}
 # Copy into relevant folders
-cp Miniconda3-py39_23.11.0-2-Linux-x86_64.sh cropfill/miniconda_installer.sh
-cp Miniconda3-py39_23.11.0-2-Linux-x86_64.sh freesurfer7p4p1/miniconda_installer.sh
-mv freesurfer-linux-ubuntu22_amd64-7.4.1.tar.gz freesurfer7p4p1/
+cp ${MINICONDA_INSTALLER} cropfill/miniconda_installer.sh
+cp ${MINICONDA_INSTALLER} freesurfer7p4p1/miniconda_installer.sh
+mv ${FREESURFER_TARBALL} freesurfer7p4p1/
 ```
 
 3. Build FreeSurfer docker container
