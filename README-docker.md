@@ -6,7 +6,8 @@ This is a companion README to the singularity instructions in [README.md](./READ
 
 To build the dockers containers, follow the instructions in [README-docker-build.md](./README-docker-build.md).
 
-Crop-Filling preprint: [Castro Leal, et al. medRxiv 2023](https://doi.org/10.1101/2023.03.06.23286839).
+Crop-Filling paper: [Castro Leal, et al., MethodsX **12**, 102542](https://doi.org/10.1016/j.mex.2023.102542) (2024).<br/>
+Crop-Filling preprint: [Castro Leal, et al., medRxiv](https://doi.org/10.1101/2023.03.06.23286839) (2023).
 
 ## Walk-through
 
